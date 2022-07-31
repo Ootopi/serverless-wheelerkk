@@ -2,6 +2,8 @@ export default async function handler(request, response) {
   const fetch = require('node-fetch')
   const parse = require('node-html-parser').parse
   const id = request.query.id
+  response.setHeader('Access-Control-Allow-Credentials', true)
+  response.setHeader('Access-Control-Allow-Origin', '*')
   fetch(`https://serverless-cors.vercel.app/api/cors?url=https://www.cycleforhope.sg/user/${id}`)
       .then(r => r.text())
       .then(raw => parse(raw))
