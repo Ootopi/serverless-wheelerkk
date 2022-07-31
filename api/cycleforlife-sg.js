@@ -1,5 +1,5 @@
 export default async function handler(request, response) {
-
+  const fetch = require('node-fetch')
   fetch('https://serverless-cors.vercel.app/api/cors?url=https://www.cycleforhope.sg/user/188908')
       .then(r => r.text())
       .then(raw => parse(raw))
